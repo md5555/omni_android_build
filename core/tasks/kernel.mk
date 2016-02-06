@@ -203,7 +203,8 @@ ifeq ($(TARGET_KERNEL_MODULES),)
     TARGET_KERNEL_MODULES := no-external-modules
 endif
 
-MAKE_FLAGS += CONFIG_LOCALVERSION="$(KERNEL_LOCAL_VERSION)-$(date +%Y%M%d-%H%M-%S)-$(git --git-dir=/home/build/android/milosz-omni6/kernel/google/dragon/.git rev-parse --verify --short HEAD)"
+datestamp=`date +%Y%m%d-%H%M-%S`
+MAKE_FLAGS += LOCALVERSION="-$(KERNEL_LOCAL_VERSION)-$(datestamp)"
 
 $(KERNEL_OUT):
 	mkdir -p $(KERNEL_OUT)
