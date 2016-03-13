@@ -203,8 +203,7 @@ ifeq ($(TARGET_KERNEL_MODULES),)
     TARGET_KERNEL_MODULES := no-external-modules
 endif
 
-datestamp=`date +%Y%m%d-%H%M-%S`
-MAKE_FLAGS += LOCALVERSION="-$(KERNEL_LOCAL_VERSION)-$(datestamp)"
+MAKE_FLAGS += LOCALVERSION="-$(KERNEL_LOCAL_VERSION)"
 
 $(KERNEL_OUT):
 	mkdir -p $(KERNEL_OUT)
